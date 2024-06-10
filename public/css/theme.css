@@ -1,0 +1,157 @@
+:root.stipple-core {
+  --q-color-primary: #38bdf8;
+  --q-color-secondary: #8ea8c3;
+  --q-color-accent: #bea7e5;
+  --q-color-dark: #022a50;
+  --q-color-info: #373b44;
+  --q-color-white: #101827;
+  --q-color-black: #302f2f;
+  --q-color-positive: #72c8a9;
+  --q-color-negative: #c10015;
+  --q-color-warning: #f2c037;
+  --q-primary: var(--q-color-primary);
+  --q-secondary: var(--q-color-secondary);
+  --q-accent: var(--q-color-accent);
+  --q-positive: var(--q-color-positive);
+  --q-negative: var(--q-color-negative);
+  --q-info: var(--q-color-info);
+  --q-warning: var(--q-color-warning);
+  --q-dark: var(--q-color-dark);
+  --q-dark-page: #121212;
+}
+:root.stipple-core {
+  --st-text-1: #e6e6e6;
+  --st-text-2: #575454;
+  --st-text-3: #5a6460;
+}
+:root.stipple-core {
+  --st-dashboard-bg: var(--q-color-white);
+  --st-dashboard-line: #e2e2e2;
+  --st-dashboard-module: #fcfcfc;
+  --st-skeleton: #e1e5ee;
+  --st-slider--track: #cad2d2;
+}
+:root.stipple-core h1,
+:root.stipple-core h2,
+:root.stipple-core h3,
+:root.stipple-core h4,
+:root.stipple-core h5,
+:root.stipple-core h6 {
+  color: var(--q-primary);
+  font-weight: bold;
+}
+:root.stipple-core h5 {
+  font-size: 1.1rem;
+}
+:root.stipple-core h6 {
+  font-size: 1rem;
+}
+:root.stipple-core h2 {
+  font-size: 1.6rem;
+}
+
+body {
+  color: var(--st-text-1);
+}
+.stipple-core a {
+  color: var(--q-color-primary);
+}
+
+.stipple-core .st-module {
+  padding-top: 10px !important;
+  border: 1px solid #cccccc10;
+}
+.stipple-core .q-btn {
+  color: #000000 !important;
+}
+
+.q-field__input,
+.q-field__native,
+.q-field__prefix,
+.q-field__suffix {
+  color: var(--st-text-1);
+}
+.q-field__label {
+  color: var(--st-text-1);
+  opacity: 0.6;
+}
+.q-field--standard .q-field__control:before {
+  border-bottom: 1px solid #cccccc40;
+}
+.q-field--standard .q-field__control:hover {
+  border-bottom: 1px solid #cccccc80;
+}
+
+.q-field__marginal {
+  color: #cccccc80;
+}
+
+.q-menu {
+  background-color: var(--q-color-white);
+  box-shadow: 1px 3px 10px 2px #2483ab73;
+}
+.main-svg {
+  background: none;
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: #cccccc10;
+  border: none;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  /* background-color: var(--q-color-primary); */
+  background-color: #153f6c;
+}
+
+._genie_logo {
+  filter: brightness(11);
+  margin-left: 5px;
+}
+svg .xgrid,
+svg .ygrid,
+svg .xzl,
+svg .yzl {
+  stroke: #192a45 !important;
+  stroke-width: 1px !important;
+}
+svg .draglayer {
+  background-color: #2a446e !important;
+}
+/* svg.main-svg{
+  background: #192a45 !important;
+} */
+
+.shortColumn {
+  max-height: 420px;
+  overflow: auto;
+}
+
+.q-chip {
+  vertical-align: middle;
+  outline: 0;
+  position: relative;
+  max-width: 100%;
+  margin: 4px;
+  background: #193756;
+  color: rgb(255 255 255 / 87%);
+  padding: 3px 6px 3px 10px !important;
+  font-weight: normal !important;
+  font-size: 0.8em;
+}
+
+.container{
+    max-width: 100%;
+}
+
+.st-col{
+  min-height:200px;
+}
+
