@@ -3,10 +3,10 @@ using GenieFramework, Arrow, DataFrames, CSV
 @genietools
 
 # the measurements taken by each station are stored in a table
-df = DataFrame(Arrow.Table("data.lz4"))
+df = DataFrame(Arrow.Table("data/data.lz4"))
 columns = names(df)
 # the soil_data table contains the location of each station along with other information
-soil_data = CSV.read("soil_data.csv", DataFrame)
+soil_data = CSV.read("data/soil_data.csv", DataFrame)
 
 # in the reactive code block, we'll implement the logic to handle user interaction
 @app begin
@@ -15,7 +15,7 @@ soil_data = CSV.read("soil_data.csv", DataFrame)
     @out fips = soil_data.fips
     @in selected_fips = 1001
     # same for the metrics
-    @out metrics = ["PS", "TS", "T2M", "WS10M", "PRECTOT"]
+    @out metrics = ["PS", "TS", "WS10M", "PRECTOT"]
     @in selected_metrics = ["PS", "TS", "WS10M"]
     # we expose a dataframe containing the data for the line plot configured in Genie Builder's visual editor
     @out fips_data = DataFrame("PS_date" => Date[], "PS" => Float64[], "TS_date" => Date[], "TS" => Float64[], "T2M_date" => Date[], "T2M" => Float64[], "WS10M_date" => Date[], "WS10M" => Float64[])
@@ -23,13 +23,14 @@ soil_data = CSV.read("soil_data.csv", DataFrame)
     # map plot data, plot configured in GB
     @out lat_fips = soil_data.lat
     @out lon_fips = soil_data.lon
-    @in data_click = Dict{String, Any}()  # data from map click event
     @out mapcolor = []
+    @in data_click = Dict{String, Any}()  # data from map click event
     # metric shown on map
     @in map_metric = "TS"
     # date of data shown on map
-    @in date = Date("2000-01-01")
-    # when selecting a new station, metric  or N update the plot data
+    @in date = Date("2000-01-21")
+    # when selecting a new station, metric  or N update the plot data. The isready variable is a pre-defined boolean that is set 
+    # to true when the page finishes loading
     @onchange selected_fips, selected_metrics, N, isready begin
         processing = true
         fips_data[!] = DataFrame() # with the [!] suffix, the reactive variable changes in value but the update is not sent to the browser
@@ -41,6 +42,11 @@ soil_data = CSV.read("soil_data.csv", DataFrame)
         end
         @push fips_data # push the updated data to the browser
         processing = false
+    end
+    # update the map when picking a new date or metric.
+    @onchange isready, date, map_metric begin
+        @show "updating map with data from $date"
+        mapcolor = df[df.date .== Date(date), map_metric]
     end
     # when clicking on a plot, the data_click variable will be populated with the event info
     @onchange data_click begin
@@ -59,12 +65,6 @@ soil_data = CSV.read("soil_data.csv", DataFrame)
             map_metric = metrics[closest_index]
         end
 
-    end
-    # update the map when picking a new date or metric. The isready variable is a pre-defined boolean that is set 
-    # to true when the page finishes loading
-    @onchange isready, date, map_metric begin
-        @show "updating map with data from $date"
-        mapcolor = df[df.date .== Date(date), map_metric]
     end
 end
 
