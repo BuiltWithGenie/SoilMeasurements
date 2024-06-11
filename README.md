@@ -16,6 +16,7 @@ Moreover, this app showcases the following:
 
 ## Installation
 
+The data included with this repo only contains measurements from three stations. You can download the full dataset [here](https://www.dropbox.com/scl/fo/43cdpk5c2454y7y1lgs1a/ACvKoEzmY7EpD12ehu8Macs?rlkey=tqizlmim2e04kqg3n0nj87i13&dl=0).
 
 Clone the repository and install the dependencies:
 
@@ -24,11 +25,7 @@ First `cd` into the project directory then run:
 ```bash
 $> julia --project -e 'using Pkg; Pkg.instantiate()'
 ```
-Then, download the dataset from [Kaggle](https://www.kaggle.com/datasets/cdminix/us-drought-meteorological-data) and convert it to .arrow with the `convert_to_arrow.jl` script:
 
-```bash
-$> julia --project -e 'include("convert_to_arrow.jl")'
-```
 
 Finally, run the app
 
