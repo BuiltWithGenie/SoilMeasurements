@@ -4,6 +4,16 @@ This app presents the data in the <a data-cke-saved-href="https://www.kaggle.com
 
 To work with such a large dataset (2GB in CSV format), this app uses the Arrow file format to load the data, and server-side resampling for plotting.
 
+https://github.com/BuiltWithGenie/SoilMeasurements/assets/5058397/b9a30ddc-4b0f-46c7-b3de-ab8d0ea790f4
+
+Moreover, this app showcases the following:
+
+- Event detection when clicking on line and map plots
+- UI controls like menus, sliders, date pickers
+- Two-column layout
+- Plot configuration with Genie Builder
+- Map for showing geospatial data
+
 ## Installation
 
 
@@ -20,7 +30,6 @@ Then, download the dataset from [Kaggle](https://www.kaggle.com/datasets/cdminix
 $> julia --project -e 'include("convert_to_arrow.jl")'
 ```
 
-
 Finally, run the app
 
 ```bash
@@ -32,7 +41,4 @@ julia> using GenieFramework
 julia> Genie.loadapp() # load app
 julia> up() # start server
 ```
-
-## Usage
-
-Open your browser and navigate to `http://localhost:8000/`
+Finally, open your browser and navigate to `http://localhost:8000/` to use the app.
