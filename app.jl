@@ -28,7 +28,7 @@ soil_data = CSV.read("data/soil_data.csv", DataFrame)
     # metric shown on map
     @in map_metric = "TS"
     # date of data shown on map
-    @in date = Date("2000-01-21")
+    @in date = "2000-01-21"
     # when selecting a new station, metric  or N update the plot data. The isready variable is a pre-defined boolean that is set 
     # to true when the page finishes loading
     @onchange selected_fips, selected_metrics, N, isready begin
