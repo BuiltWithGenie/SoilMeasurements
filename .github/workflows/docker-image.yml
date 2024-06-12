@@ -1,0 +1,33 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      # Extract version from project.toml
+      - name: Extract version from project.toml
+        id: project_version
+        run: echo "::set-output name=VERSION::$(sed -n 's/^version = \"\([^\"]*\)\"/\1/p' Project.toml)"
+
+      # Extract app name from project.toml
+      - name: Extract app name from project.toml
+        id: project_name
+        run: echo "::set-output name=APP_NAME::$(sed -n 's/^imgname = \"\([^\"]*\)\"/\1/p' Project.toml)"
+
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag pjgim/${{ steps.project_name.outputs.APP_NAME }}:${{ steps.project_version.outputs.VERSION }}
+
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
+
+      - name: Push Docker image
+        run: docker push pjgim/${{ steps.project_name.outputs.APP_NAME }}:${{ steps.project_version.outputs.VERSION }}
