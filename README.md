@@ -4,6 +4,8 @@ This app presents the data in the <a data-cke-saved-href="https://www.kaggle.com
 
 To work with such a large dataset (2GB in CSV format), this app uses the Arrow file format to load the data, and server-side resampling for plotting.
 
+The data included with this repo only contains measurements from three stations. You can download the full dataset [here](https://www.dropbox.com/scl/fo/43cdpk5c2454y7y1lgs1a/ACvKoEzmY7EpD12ehu8Macs?rlkey=tqizlmim2e04kqg3n0nj87i13&dl=0).
+
 https://github.com/BuiltWithGenie/SoilMeasurements/assets/5058397/b9a30ddc-4b0f-46c7-b3de-ab8d0ea790f4
 
 Moreover, this app showcases the following:
@@ -16,7 +18,6 @@ Moreover, this app showcases the following:
 
 ## Installation
 
-The data included with this repo only contains measurements from three stations. You can download the full dataset [here](https://www.dropbox.com/scl/fo/43cdpk5c2454y7y1lgs1a/ACvKoEzmY7EpD12ehu8Macs?rlkey=tqizlmim2e04kqg3n0nj87i13&dl=0).
 
 Clone the repository and install the dependencies:
 
