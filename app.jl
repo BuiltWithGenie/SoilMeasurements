@@ -59,9 +59,9 @@ soil_data = CSV.read("data/soil_data.csv", DataFrame)
             selected_fips = fips[closest_index]
         else
             # clicking on a line chart generates event data with x and y coordinates of the clicked point
-            date = unix2datetime(data_click["cursor"]["x"]/1000) # the x point data is in Unix time
-            date_data = df[(df.date .== date) .& (df.fips .== selected_fips), metrics] |> Matrix |> vec
-            closest_index = argmin(abs.( date_data .- data_click["cursor"]["y"]))
+            date = string(Date(unix2datetime(data_click["cursor"]["x"]/1000))) # the x point data is in Unix time
+            date_data = df[(df.date .== Date(date)) .& (df.fips .== selected_fips), selected_metrics] |> Matrix |> vec
+            closest_index = argmin(abs.( date_data .- (data_click["cursor"]["y"]+10))) # for some reason the y value is off by 10
             map_metric = metrics[closest_index]
         end
 
