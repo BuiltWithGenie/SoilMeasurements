@@ -4,16 +4,16 @@
         <plotly id="i8wie" class="sync_data" data="W3siZ2J0eXBlIjoiTGluZSBDaGFydCIsIngiOiIkX3tmaXBzX2RhdGEuUFNfZGF0ZX0iLCJ5IjoiJF97Zmlwc19kYXRhLlBTfSIsInR5cGUiOiJzY2F0dGVyIiwibW9kZSI6ImxpbmVzIiwibmFtZSI6IlN1cmZhY2UgcHJlc3N1cmUgKFBTKSJ9LHsieCI6IiRfe2ZpcHNfZGF0YS5UU19kYXRlfSIsInkiOiIkX3tmaXBzX2RhdGEuVFN9IiwidHlwZSI6InNjYXR0ZXIiLCJuYW1lIjoiU3VyZmFjZSB0ZW1wZXJhdHVyZSAgKFRTKSJ9LHsieCI6IiRfe2ZpcHNfZGF0YS5UMk1fZGF0ZX0iLCJ5IjoiJF97Zmlwc19kYXRhLlQyTX0iLCJ0eXBlIjoic2NhdHRlciIsIm5hbWUiOiJUZW1wIGF0IDJtIChUMk0pIn0seyJ4IjoiJF97Zmlwc19kYXRhLldTMTBNX2RhdGV9IiwieSI6IiRfe2ZpcHNfZGF0YS5XUzEwTX0iLCJ0eXBlIjoic2NhdHRlciIsIm5hbWUiOiJXaW5kIHNwZWVkIChXUzEwTSkifSx7IngiOiIkX3tmaXBzX2RhdGEuUFJFQ1RPVF9kYXRlfSIsInkiOiIkX3tmaXBzX2RhdGEuUFJFQ1RPVH0iLCJ0eXBlIjoic2NhdHRlciIsIm5hbWUiOiJQcmVjaXBpdGF0aW9uIChQUkVDVE9UKSJ9XQ==" config="e30=" layout="eyJtYXJnaW4iOnsiYiI6IjMwIiwiciI6MCwibCI6IjMwIiwidCI6IjAifSwibGVnZW5kIjp7Im9yaWVudGF0aW9uIjoiaCIsInkiOiIxLjEifSwicGxvdF9iZ2NvbG9yIjoiIzEwMTgyNyIsInBhcGVyX2JnY29sb3IiOiIjMTAxODI3IiwiZm9udCI6eyJjb2xvciI6IiNmZmZmZmYifX0="></plotly>
         <plotly id="igbvk" class="sync_data" data="W3siZ2J0eXBlIjoiU2NhdHRlciBNYXBib3giLCJsYXQiOiIkX3tsYXRfZmlwc30iLCJsb24iOiIkX3tsb25fZmlwc30iLCJtb2RlIjoibWFya2VycyIsInR5cGUiOiJzY2F0dGVybWFwYm94IiwibmFtZSI6IlRyYWNlIiwibWFya2VyIjp7ImNvbG9yIjoiJF97bWFwY29sb3J9In0sInoiOiIkX3ttYXBjb2xvcn0ifSx7IngiOiIiLCJ5IjoiIiwidHlwZSI6InNjYXR0ZXIiLCJuYW1lIjoiVHJhY2UifV0=" config="e30=" layout="eyJkcmFnbW9kZSI6Inpvb20iLCJtYXBib3giOnsic3R5bGUiOiJvcGVuLXN0cmVldC1tYXAiLCJjZW50ZXIiOnsibGF0IjozOCwibG9uIjotOTB9LCJ6b29tIjozfSwibWFyZ2luIjp7InIiOjAsInQiOjAsImIiOjAsImwiOjB9fQ=="></plotly>
     </div>
-    <div class="st-col st-module col-3">
+    <div class="st-col st-module st-gap-md" id="i6zah">
         <h5>Controls<br></h5>
         <q-select id="i80x" v-model="selected_fips" label="Station" :options="fips"></q-select>
         <q-select id="ix5fg" label="Metrics" :options="metrics" :multiple="true" :use-chips="true" v-model="selected_metrics"></q-select>
-        <p><br>​​​​​​​Points per line​​<br></p>
+        <p class="st-field-label">Points per line</p>
         <q-slider id="i8w53" v-model="N" color="primary" :label="true" :max="3000" :min="96" :step="100" :markers="true"></q-slider>
         <q-select id="il4dw" label="Map metric" :options="metrics" v-model="map_metric"></q-select>
-        <q-input iscomposite="true" id="idh94" v-model="date" :clearable="true" :filled="true" label="Pick a date">
+        <q-input iscomposite="true" id="idh94" v-model="date" :clearable="true" :filled="true" label="Date">
             <q-icon id="i0q81" class="cursor-pointer" name="event">
-                <q-popup-proxy>
+                <q-popup-proxy id="iw1kn">
                     <q-date id="i39bm" v-model="date" mask="YYYY-MM-DD" :no-unset="true" :today-btn="true"></q-date>
                 </q-popup-proxy>
             </q-icon>
