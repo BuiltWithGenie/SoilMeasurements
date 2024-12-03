@@ -3,10 +3,10 @@ using GenieFramework, Arrow, DataFrames, CSV
 @genietools
 
 # the measurements taken by each station are stored in a table
-df = DataFrame(Arrow.Table("data/bigdata.lz4"))
+df = DataFrame(Arrow.Table("data/data.lz4"))
 columns = names(df)
 # the soil_data table contains the location of each station along with other information
-soil_data = CSV.read("data/big_soil_data.csv", DataFrame)
+soil_data = CSV.read("data/soil_data.csv", DataFrame)
 
 # in the reactive code block, we'll implement the logic to handle user interaction
 @app begin
