@@ -7,5 +7,9 @@ PlotlyBase = "a03496cd-edff-5a9b-9e67-9cda94a718b5"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 GenieFramework = "a59fdf5c-6bf0-4f5d-949c-a137c9e2f353"
 
+[compat]
+GenieFramework = "2"
+julia = "1"
+
 [Genie]
 instantiated_pwd = "/Users/pere/SoilMeasurements"
