@@ -37,10 +37,10 @@ soil_data = CSV.read("data/soil_data.csv", DataFrame)
         for m in selected_metrics
             # the lttb function resamples the data in the array to a set of N points
             idx, resampled = lttb(df[df.fips .== selected_code, m], N)
-            station_data[!, m*"_date"] = df[df.fips .== selected_code, :date][idx]
-            station_data[!, m] = resampled
+            station_data[!][!, m*"_date"] = df[df.fips .== selected_code, :date][idx]
+            station_data[!][!, m] = resampled
         end
-        @push station_data # push the updated data to the browser
+        @push :station_data # push the updated data to the browser
         processing = false
     end
     # update the map when picking a new date or metric.
